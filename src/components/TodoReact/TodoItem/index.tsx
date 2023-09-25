@@ -9,9 +9,17 @@ type TodoItemProps = {
 export function TodoItem({ todo, setTodoList }: TodoItemProps): JSX.Element {
   const concludeTodo = useCallback(() => {
     todo.concluded = !todo.concluded;
-    setTodoList(todoList =>
-      todoList.map(todoItem => (todoItem.id === todo.id ? todo : todoItem)),
-    );
+    if (todo.concluded) {
+      setTodoList(todoList => [
+        ...todoList.filter(todoItem => todoItem.id !== todo.id),
+        todo,
+      ]);
+    } else {
+      setTodoList(todoList => [
+        todo,
+        ...todoList.filter(todoItem => todoItem.id !== todo.id),
+      ]);
+    }
   }, [setTodoList, todo]);
 
   const deleteTodo = useCallback(() => {
