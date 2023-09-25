@@ -11,7 +11,7 @@ export function TodoList({ todos, setTodoList }: TodoListProps): JSX.Element {
   return (
     <ul className="flex flex-col gap-3">
       {todos.map(todo => (
-        <TodoItem todo={todo} setTodoList={setTodoList} />
+        <TodoItem key={todo.id} todo={todo} setTodoList={setTodoList} />
       ))}
     </ul>
   );

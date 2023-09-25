@@ -25,7 +25,6 @@ export function TodoItem({ todo, setTodoList }: TodoItemProps): JSX.Element {
       className={`flex gap-2 p-2 w-full bg-white shadowButton rounded items-center ${
         todo.concluded ? 'line-through decoration-red-700 opacity-75' : ''
       }`}
-      key={todo.id}
     >
       <span className="font-bold text-red-700 text-left">{todo.content}</span>
       <div id="buttons-container" className="ml-auto flex gap-2 items-center">
